@@ -23,7 +23,7 @@ public class EJERCICIO1 {
             System.out.println("El número introducido es positivo.");
         }
         
-        else { // Si el número es menor que 0, es negativo
+        else { //Si no, el número es negativo
             System.out.println("El número introducido es negativo.");
         }
     }      

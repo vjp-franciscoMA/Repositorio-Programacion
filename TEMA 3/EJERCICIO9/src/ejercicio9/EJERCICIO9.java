@@ -24,135 +24,70 @@ public class EJERCICIO9 {
         System.out.println("Por último, introduzca un cuarto número:"); //Muestro otro mensaje para pedir el cuarto número
         int numero4 = entrada.nextInt(); //Guardo el cuarto número que escribe el usuario
         
-        //Creo las siguientes variables para almacenar los números ordenados
-        int menor, segundo, tercero, mayor;
-       
-         //Determino el menor número
-        if(numero1 <= numero2 && numero1 <= numero3 && numero1 <= numero4){
-            menor = numero1;
-            //Ordeno los demás
-            if(numero2 <= numero3 && numero2 <= numero4){
-                segundo = numero2;
-                if(numero3 <= numero4){
-                    tercero = numero3;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero3;
-                }
-            } else if(numero3 <= numero2 && numero3 <= numero4){
-                segundo = numero3;
-                if(numero2 <= numero4){
-                    tercero = numero2;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero2;
-                }
-            } else { //numero4 es el segundo más pequeño
-                segundo = numero4;
-                if(numero2 <= numero3){
-                    tercero = numero2;
-                    mayor = numero3;
-                } else {
-                    tercero = numero3;
-                    mayor = numero2;
-                }
-            }
-        } else if(numero2 <= numero1 && numero2 <= numero3 && numero2 <= numero4){
+        //He ido haciéndolo poco a poco con ayuda de la IA
+        int menor = numero1; //Creo la variable menor y hago la suposición de que el numero 1 es el más pequeño
+        if (numero2 < menor) { //Si el segundo número es menor que el actual menor, lo actualizamos
             menor = numero2;
-            if(numero1 <= numero3 && numero1 <= numero4){
-                segundo = numero1;
-                if(numero3 <= numero4){
-                    tercero = numero3;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero3;
-                }
-            } else if(numero3 <= numero1 && numero3 <= numero4){
-                segundo = numero3;
-                if(numero1 <= numero4){
-                    tercero = numero1;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero1;
-                }
-            } else {
-                segundo = numero4;
-                if(numero1 <= numero3){
-                    tercero = numero1;
-                    mayor = numero3;
-                } else {
-                    tercero = numero3;
-                    mayor = numero1;
-                }
-            }
-        } else if(numero3 <= numero1 && numero3 <= numero2 && numero3 <= numero4){
+        }
+        if (numero3 < menor) { //Si el tercer número es menor que el actual menor, lo actualizamos
             menor = numero3;
-            if(numero1 <= numero2 && numero1 <= numero4){
-                segundo = numero1;
-                if(numero2 <= numero4){
-                    tercero = numero2;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero2;
-                }
-            } else if(numero2 <= numero1 && numero2 <= numero4){
-                segundo = numero2;
-                if(numero1 <= numero4){
-                    tercero = numero1;
-                    mayor = numero4;
-                } else {
-                    tercero = numero4;
-                    mayor = numero1;
-                }
-            } else {
-                segundo = numero4;
-                if(numero1 <= numero2){
-                    tercero = numero1;
-                    mayor = numero2;
-                } else {
-                    tercero = numero2;
-                    mayor = numero1;
-                }
-            }
-        } else { //numero4 es el menor
+        }
+        if (numero4 < menor) { //Si el cuarto número es menor que el actual menor, lo actualizamos
             menor = numero4;
-            if(numero1 <= numero2 && numero1 <= numero3){
-                segundo = numero1;
-                if(numero2 <= numero3){
-                    tercero = numero2;
-                    mayor = numero3;
-                } else {
-                    tercero = numero3;
-                    mayor = numero2;
-                }
-            } else if(numero2 <= numero1 && numero2 <= numero3){
-                segundo = numero2;
-                if(numero1 <= numero3){
-                    tercero = numero1;
-                    mayor = numero3;
-                } else {
-                    tercero = numero3;
-                    mayor = numero1;
-                }
-            } else {
-                segundo = numero3;
-                if(numero1 <= numero2){
-                    tercero = numero1;
-                    mayor = numero2;
-                } else {
-                    tercero = numero2;
-                    mayor = numero1;
-                }
-            }
         }
        
-        //Mostramos los números en orden creciente
-        System.out.println("El orden de los números introducidos es: " + menor + "-" + segundo + "-" + tercero + "-" + mayor);
-    } 
-} 
+        int mayor = numero1; //Creo la variable mayor y hago la suposición de que el numero 1 es el más grande
+        if (numero2 >  mayor) { //Si el segundo número es mayor que el actual mayor, lo actualizamos
+            mayor = numero2;
+        }
+        if (numero3 > mayor) { //Si el tercer número es mayor que el actual mayor, lo actualizamos
+            mayor = numero3;
+        }
+        if (numero4 > mayor) { //Si el cuarto número es mayor que el actual mayor, lo actualizamos
+            mayor = numero4;
+        }
+       
+        //Ahora averiguaré los dos números del medio creando dos variables
+        int medio1 = 0, medio2 = 0;
+       
+        //Asigno el primer número del medio, que no sea ni menor ni mayor
+        if (numero1 != menor && numero1 != mayor) {
+            medio1 = numero1;
+        }
+        else if (numero2 != menor && numero2 != mayor) {
+            medio1 = numero2;
+        }
+        else if (numero3 != menor && numero3 != mayor) {
+            medio1 = numero3;
+        }
+        else {
+        medio1 = numero4;
+        }
+       
+        //Asigno el segundo número del medio, que no sea ni menor, ni mayor, ni el primer medio
+        if (numero1 != menor && numero1 != mayor && numero1 != medio1) {
+            medio2 = numero1;
+        }
+        else if (numero2 != menor && numero2 != mayor && numero2 != medio1) {
+            medio2 = numero2;
+        }
+        else if (numero3 != menor && numero3 != mayor && numero3 != medio1) {
+            medio2 = numero3;
+        }
+        else {
+        medio2 = numero4;
+        }
+       
+        //Me aseguro de que medio1 sea menor que medio2 creando una variable temporal
+        if (medio1 > medio2) {
+            int temp = medio1;
+            medio1 = medio2;
+            medio2 = temp;
+        }
+       
+        //Resultado
+        System.out.println("El orden de los números introducidos es el "+menor+" - "+medio1+" - "+medio2+" - "+mayor+"");
+    }
+}
+
     
