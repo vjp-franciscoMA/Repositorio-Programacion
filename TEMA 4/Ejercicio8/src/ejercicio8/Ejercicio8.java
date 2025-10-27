@@ -19,22 +19,22 @@ public class Ejercicio8 {
         monedas1 = (dinero % 50 % 20 % 10 % 5 % 2) / 1;
         
         System.out.println(""+dinero+" Euros se descomponen en:");
-        if (billetes50 >= 1) {
+        if (billetes50 > 0) {
             System.out.println("Billetes de 50: "+billetes50+"");
         }
-        if (billetes20 >= 1) {
+        if (billetes20 > 0) {
             System.out.println("Billetes de 20: "+billetes20+"");
         }
-        if (billetes10 >= 1) {
+        if (billetes10 > 0) {
             System.out.println("Billetes de 10: "+billetes10+"");
         }
-        if (billetes5 >= 1) {
+        if (billetes5 > 0) {
             System.out.println("Billetes de 5: "+billetes5+"");
         }
-        if (monedas2 >= 1) {
+        if (monedas2 > 0) {
             System.out.println("Monedas de 2: "+monedas2+"");
         }
-        if (monedas1 >= 1) {
+        if (monedas1 > 0) {
             System.out.println("Monedas de 1: "+monedas1+"");
         }
         
