@@ -9,18 +9,27 @@ import java.util.Scanner;
  * @author fmont
  */
 public class Ejercicio6 {
-    public static void Nota(int nota) {
-        if (nota >= 0 && nota <= 4) {
-            System.out.println("Suspenso.");
-        }
-        else if (nota >= 5 && nota <= 6) {
-            System.out.println("Bien.");
-        }
-        else if (nota >= 7 && nota <=8) {
-            System.out.println("Notable.");
-        }
-        else if (nota >= 9 && nota <= 10) {
-            System.out.println("Sobresaliente.");
+    public static void nota(int nota) {
+        switch (nota) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                    System.out.println("Suspenso.");  
+                    break;
+            case 5:
+            case 6:
+                    System.out.println("Bien.");  
+                    break;
+            case 7:
+            case 8:
+                   System.out.println("Notable.");  
+                   break;
+            case 9:
+            case 10:
+                   System.out.println("Sobresaliente.");  
+                   break;
         }
     }
     /**
@@ -30,7 +39,7 @@ public class Ejercicio6 {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Por favor, introduzca la nota de un alumno:");
         int nota = entrada.nextInt();
-        Nota(nota);
+        nota(nota);
         
     }
     
