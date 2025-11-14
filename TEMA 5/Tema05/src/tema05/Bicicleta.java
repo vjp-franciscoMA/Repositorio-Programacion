@@ -15,7 +15,11 @@ public class Bicicleta {
     private String pedales;
     private String frenos;
     private boolean estaPedaleando;
-    private static int numBicicletas = 0; // Atributo estático que pertenece a la clase
+    // 1.2 Atributo estático que pertenece a la clase
+    private static int numBicicletas = 0;
+    
+    // 1.3. ATRIBUTO DE OTRA CLASE
+    private Ciclista ciclista;
     
     // CONSTRUCTORES
     // Por defecto
@@ -25,16 +29,26 @@ public class Bicicleta {
         this.pedales = "";
         this.frenos = "";
         this.estaPedaleando = false;
-        incrementarNumBicicletas(); // Incrementamos el valor del atributo estático
+        // 1.2. Incrementamos el valor del atributo estático
+        incrementarNumBicicletas();
+    
+        // 1.3. ¡IMPORTANTE! Inicializamos un ciclista por defecto (con el constructor por defecto)
+        this.Ciclista = new Ciclista();
     }
     
-    public Bicicleta(int ruedas, String manillar, String pedales, String frenos, boolean estaPedaleando) {
+    
+    public Bicicleta(int ruedas, String manillar, String pedales, String frenos, boolean estaPedaleando, Ciclista ciclista) {
         this.ruedas = ruedas;
         this.manillar = manillar;
         this.pedales = pedales;
         this.frenos = frenos;
         this.estaPedaleando = estaPedaleando;
-        incrementarNumBicicletas(); // Incrementamos el valor del atributo estático
+        
+        // 1.2. Incrementamos el valor del atributo estático
+        incrementarNumBicicletas();
+    
+        // 1.3. ¡IMPORTANTE! Inicializamos un ciclista por defecto (con el constructor por defecto)
+        this.Ciclista = new Ciclista();
     }
     
     // GETTERS Y SETTERS
@@ -91,5 +105,9 @@ public class Bicicleta {
                 ", unos pedales " + this.pedales +
                 ", unos frenos " + this.frenos +
                 " y ahora ¿estoy pedaleando? " + this.estaPedaleando;
+        
+                // 1.3. Imprimos la información del ciclista
+                // Coge el mensaje del ciclista.toString()
+                this.ciclista.toString();
     }
 }

@@ -28,8 +28,8 @@ public class Tema05 {
         
         // 1.2. Con constructor parametrizado, inicializando los atributos
         // con los valores pasados por parámetro
-        Coche tuCoche = new Coche("Michelin", "Bajo", 3);
-        System.out.println(tuCoche.toString());
+//        Coche tuCoche = new Coche("Michelin", "Bajo", 3);
+//        System.out.println(tuCoche.toString());
         
         // Esto hace lo mismo que la línea anterior, porque detecta el toString() automáticamente
         // System.out.println(tuCoche);
@@ -37,27 +37,39 @@ public class Tema05 {
         // System.out.println(tuCoche.getRuedas());
         
         // MODIFICARES DE ACCESO
-        Bicicleta bicileta = new Bicicleta();
-        System.out.println();
-        
-        System.out.println("¿Cuántas bicicletas hemos creado?");
-        System.out.println(bicileta.getNumBicicletas());
-        
-        // PASO DE PARÁMETROS POR VALOR 0 POR REFERENCIA
-        int num1 = 4;
-        System.out.println(suma(num1));
-        
-        Bicicleta bici = new Bicicleta();
-        empezarAPedalear(bici);
-    }
+//        Bicicleta bicileta = new Bicicleta();
+//        System.out.println();
+//        
+//        System.out.println("¿Cuántas bicicletas hemos creado?");
+//        System.out.println(bicileta.getNumBicicletas());
+//        
+//        // PASO DE PARÁMETROS POR VALOR 0 POR REFERENCIA
+//        int num1 = 4;
+//        System.out.println(suma(num1));
+//        
+//        Bicicleta bici = new Bicicleta();
+//        empezarAPedalear(bici);
+//    }
+//    
+//    public static int suma(int num1) {
+//        int num2 = 3;
+//        return num1 + num2;
+//    }
+//    
+//    public static void empezarAPedalear(Bicicleta bici) {
+//        bici.setEstaPedaleando(true);
+//    }
+
+    // 4. COMPOSICION DE CLASES
+    // 4.1. / Creo un ciclista
+    Ciclista pogacar = new Ciclista ("Pogacar", 1, "Líder");    
     
-    public static int suma(int num1) {
-        int num2 = 3;
-        return num1 + num2;
+    // 4.2 / Creo una bici
+//    Bicicleta biciPogacar = new Bicileta{
+//        2,
+//        "recto";
+//        
+//    }
     }
-    
-    public static void empezarAPedalear(Bicicleta bici) {
-        bici.setEstaPedaleando(true);
-    }
-    
 }
+
