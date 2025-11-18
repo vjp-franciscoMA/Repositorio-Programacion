@@ -9,18 +9,36 @@ import java.util.Scanner;
  * @author alumno
  */
 public class Ejercicio16 {
-
+    public static Alumno crearAlumno(Scanner entrada) {
+        System.out.print("Introduce el nombre del alumno: ");
+        String nombre = entrada.nextLine();
+       
+        System.out.print("Introduce la nota del alumno (0-10): ");
+        int nota = entrada.nextInt();
+        entrada.nextLine();  // Limpiar buffer
+       
+        Alumno alumno = new Alumno(nombre, nota);
+        return alumno;
+    }
+   
+    public static void mostrarCalificacion(Alumno alumno) {
+        System.out.println("Alumno: " + alumno.getNombre());
+        System.out.println("Nota: " + alumno.getNota());
+        System.out.println("Calificación: " + alumno.getCalificacion());
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner entrada = new Scanner (System.in);
-        System.out.println("Introduce el nombre del primer nombre:");
-        String nombre1 = entrada.nextLine();
-        System.out.println("Introduce la nota del primer alumno:");
-        int nota1 = entrada.nextInt();
-        
-        Alumno a1 = new Alumno(nombre1, nota1);
+        Scanner entrada = new Scanner(System.in);
+       
+        Alumno alumno1 = crearAlumno(entrada);
+        Alumno alumno2 = crearAlumno(entrada);
+        Alumno alumno3 = crearAlumno(entrada);
+       
+        mostrarCalificacion(alumno1);
+        mostrarCalificacion(alumno2);
+        mostrarCalificacion(alumno3);
     }
     
 }
