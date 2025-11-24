@@ -14,7 +14,12 @@ public class Ejercicio23 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Taxi taxiParametrizado = new Taxi("1234AAA", "Polo", 90, 23541425);
+        System.out.println(taxiParametrizado);
+        
+        Taxi taxiPordefecto = new Taxi();
+        System.out.println(taxiPordefecto);
+        taxiPordefecto.setModelo("Megane");
     }
     
 }
