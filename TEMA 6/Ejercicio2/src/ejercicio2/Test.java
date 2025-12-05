@@ -18,15 +18,15 @@ public class Test {
         Profesor profesor = new Profesor("Antonio", "LMSGI");
         Alumno alumno = new Alumno("Francisco","1ºDAW");
         
-        profesor.saludar();
-        alumno.saludar();
+        System.out.println(profesor.saludar());
+        System.out.println(alumno.saludar());
         
         // POLIMORFISMO
         Persona p1 = new Profesor("Antonio", "LMSGI");
         Persona p2 = new Alumno("Francisco", "1ºDAW");
         
-        p1.saludar();
-        p2.saludar();
+        System.out.println(p1.saludar());
+        System.out.println(p2.saludar());
     }
     
 }

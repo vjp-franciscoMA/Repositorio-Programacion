@@ -12,7 +12,7 @@ public class Direccion {
     // ATRIBUTOS
     private String calle;
     private int numero;
-    private String piso;
+    private int piso;
     private String ciudad;
 
     // CONSTRUCTORES
@@ -20,12 +20,12 @@ public class Direccion {
     public Direccion() {
         this.calle = "";
         this.numero = 0;
-        this.piso = "";
+        this.piso = 0;
         this.ciudad = "";
     }
 
     // Parametrizado
-    public Direccion(String calle, int numero, String piso, String ciudad) {
+    public Direccion(String calle, int numero, int piso, String ciudad) {
         this.calle = calle;
         this.numero = numero;
         this.piso = piso;
@@ -47,10 +47,10 @@ public class Direccion {
         return this.numero;
     }
 
-    public void setPiso(String piso) {
+    public void setPiso(int piso) {
         this.piso = piso;
     }
-    public String getPiso() {
+    public int getPiso() {
         return this.piso;
     }
 
