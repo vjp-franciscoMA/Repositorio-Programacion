@@ -16,14 +16,36 @@ public class Ejercicio9 {
         return numero;
     }
     
-    public static void calcularCifrasNumero(int numero) {
-        
+    public static int calcularCifrasNumero(int numero) {
+        int cifras;
+        cifras = String.valueOf(numero).length();
+        return cifras;
+    }
+    
+    public static int[] dividirCifras(int numero, int cifras) {
+        int[] array = new int[cifras];
+        int i;
+        for(i = 0; i < array.length; i++) {
+            array[i] = numero % 10;
+            numero = numero / 10;
+        }
+        return array;
+    }
+    
+    public static void mostrarArray(int[] array) {
+        int i;
+        for(i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        int numero = pedirNumero();
+        int calculo = calcularCifrasNumero(numero);
+        int[] dividir = dividirCifras(numero, calculo);
+        mostrarArray(dividir);
     }
     
 }

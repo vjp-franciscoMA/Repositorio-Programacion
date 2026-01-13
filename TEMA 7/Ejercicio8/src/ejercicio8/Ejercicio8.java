@@ -6,6 +6,7 @@ package ejercicio8;
 import java.util.Scanner;
 /**
  *
+ * 
  * @author alumno
  */
 public class Ejercicio8 {
@@ -33,7 +34,7 @@ public class Ejercicio8 {
     
     public static void mostrarNumero(int[] division) {
         int i;
-        for(i = 0; i < division.length; i++) {
+        for(i = division.length - 1; i >= 0; i--) {
             System.out.println(division[i]);
         }
     }
