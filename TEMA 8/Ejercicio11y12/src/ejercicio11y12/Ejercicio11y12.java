@@ -4,7 +4,6 @@
  */
 package ejercicio11y12;
 import java.util.Scanner;
-import java.util.Arrays;
 /**
  *
  * @author alumno
@@ -40,9 +39,15 @@ public class Ejercicio11y12 {
         }
     }
     public static void mostrarMueblesporPrecio(Mueble[] muebles) {
+        Scanner entrada = new Scanner(System.in);
         int i;
+        System.out.println("Introduce un precio para mostrarte los muebles con ese precio o con uno inferior:");
+        double precio2 = entrada.nextDouble();
+        entrada.nextLine();
         for(i = 0; i < muebles.length; i++) {
-            System.out.println(muebles[i].getPrecio());
+            if(muebles[i].getPrecio() <= precio2) {
+            System.out.println(muebles[i]);
+            }
         }
     }
     /**
