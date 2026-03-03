@@ -36,42 +36,68 @@ public class Ejercicio5 {
     }
     
     public static int mayorPar(ArrayList<Integer> lista) {
-        int mayor = lista.get(0);
-        for(int i = 0; i < lista.size(); i++) {
-            if(lista.get(i) > mayor && lista.get(i) % 2 == 0) {
+        int mayor = 0;
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) % 2 == 0) {
+                mayor = lista.get(i);
+                break;
+            }
+        }
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) % 2 == 0 && lista.get(i) > mayor) {
                 mayor = lista.get(i);
             }
         }
-        System.out.println("Número mayor: "+mayor+"");
+
+        System.out.println("Número mayor par: "+mayor+"");
         return mayor;
     }
     
     public static int menorImpar(ArrayList<Integer> lista) {
-        int menor = lista.get(0);
-        for(int i = 0; i < lista.size(); i++) {
-            if(lista.get(i) < menor && lista.get(i) % 2 != 0) {
+        int menor = 0;
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) % 2 != 0) {
+                menor = lista.get(i);
+                break; 
+            }
+        }
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) % 2 != 0 && lista.get(i) < menor) {
                 menor = lista.get(i);
             }
         }
-        System.out.println("Número menor: "+menor+"");
+
+        System.out.println("Número menor impar: "+menor+"");
         return menor;
     }
     
     public static void intercambiar(ArrayList<Integer> lista, int mayor, int menor) {
-        int temp = lista.get(mayor);
-        lista.set(mayor, lista.get(menor));
-        lista.set(menor, temp);
-        
-        for(int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
+        int posMayor = lista.indexOf(mayor);
+        int posMenor = lista.indexOf(menor);
+
+        if (posMayor != -1 && posMenor != -1) {
+            int temp = lista.get(posMayor);
+            lista.set(posMayor, lista.get(posMenor));
+            lista.set(posMenor, temp);
         }
+
+        System.out.println("Lista después del intercambio:");
+        mostrarLista(lista);
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         ArrayList<Integer> lista = new ArrayList<>();
-        
+        lista = lista();
+        mostrarLista(lista);
+        int mayor = mayorPar(lista);
+        int menor = menorImpar(lista);
+        intercambiar(lista, mayor, menor);
     }
     
 }
