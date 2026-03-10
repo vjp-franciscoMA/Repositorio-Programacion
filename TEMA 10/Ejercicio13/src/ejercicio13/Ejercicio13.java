@@ -40,7 +40,6 @@ public class Ejercicio13 {
     }
     
     public static void mostrarVentas(ArrayList<Venta> ventas) {
-        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
         for (int i = 0; i < MESES; i++) {
             System.out.println(ventas.get(i).toString());
         }
@@ -55,9 +54,24 @@ public class Ejercicio13 {
     }
     
     public static void ventasMesesA(ArrayList<Venta> ventas) {
-        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
         for (int i = 0; i < MESES; i++) {
-            if (meses[i].toLowerCase().contains("a")) {
+            if (ventas.get(i).getNombreMes().toLowerCase().contains("a")) {
+                System.out.println(ventas.get(i).toString());
+            }
+        }
+    }
+    
+    public static void mesesConMasVentas(ArrayList<Venta> ventas) {
+        int mayor = ventas.get(0).getVentas();
+
+        for (int i = 0; i < ventas.size(); i++) {
+            if (ventas.get(i).getVentas() > mayor) {
+                mayor = ventas.get(i).getVentas();
+            }
+        }
+
+        for (int i = 0; i < ventas.size(); i++) {
+            if (ventas.get(i).getVentas() == mayor) {
                 System.out.println(ventas.get(i).toString());
             }
         }
@@ -95,5 +109,3 @@ public class Ejercicio13 {
     }
 
     }
-    
-}
