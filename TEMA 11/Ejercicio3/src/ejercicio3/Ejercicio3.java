@@ -4,6 +4,7 @@
  */
 package ejercicio3;
 
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -65,7 +66,66 @@ public class Ejercicio3 {
         }
     }
     
+    public static void buscarAutobus(Autobus[] estacion) {
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.print("Introduce la matrícula a buscar:");
+        String matricula = entrada.nextLine();
+
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < estacion.length && !encontrado) {
+            if (estacion[i] != null && estacion[i].getMatricula().equals(matricula)) {
+                encontrado = true;
+
+                System.out.println("Posición: "+i+"");
+                System.out.println("Matrícula: "+estacion[i].getMatricula()+"");
+
+                for (Map.Entry<String, Conductor> entry : estacion[i].getConductores().entrySet()) {
+                    System.out.println("DNI: "+entry.getValue().getDni()+", Nombre: "+entry.getValue().getNombre()+"");
+                }
+            }
+            i++;
+        }
+
+        if (!encontrado) {
+            System.out.println("No se ha encontrado ningún autobús con esa matrícula.");
+        }
+    }
     
+    public static void buscarConductor(Autobus[] estacion) {
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.print("Introduce el DNI del conductor a buscar:");
+        String dni = entrada.nextLine();
+
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < estacion.length && !encontrado) {
+            if (estacion[i] != null) {
+
+                for (Map.Entry<String, Conductor> entry : estacion[i].getConductores().entrySet()) {
+
+                    if (entry.getValue().getDni().equals(dni)) {
+                        encontrado = true;
+
+                        System.out.println("DNI: "+entry.getValue().getDni()+"");
+                        System.out.println("Nombre: "+entry.getValue().getNombre()+"");
+                        System.out.println("Matrícula del autobús: "+estacion[i].getMatricula()+"");
+                    }
+                }
+            }
+            i++;
+        }
+
+        if (!encontrado) {
+            System.out.println("No se ha encontrado ningún conductor con ese DNI.");
+        }
+    }
+    
+    // El método del apartado 5 no lo he entendido muy bien.
     /**
      * @param args the command line arguments
      */
@@ -82,13 +142,13 @@ public class Ejercicio3 {
                     mostrarDarsenasLibres(estacion);
                     break;
                 case 3:
-                    
+                    buscarAutobus(estacion);
                     break;
                 case 4:
-                    
+                    buscarConductor(estacion);
                     break;
                 case 5:
-                    
+                    // El método del apartado 5 no lo he entendido muy bien.
                     break;
                 case 6:
                     System.out.println("Te has salido del programa.");
