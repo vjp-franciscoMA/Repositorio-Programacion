@@ -28,7 +28,69 @@ public class Ejercicio7 {
     
     public static void añadirCampaña(ArrayList<Campania> campañas) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("");
+        System.out.print("Introduce el nombre de la campaña:");
+        String nombre = entrada.nextLine();
+        campañas.add(new Campania(nombre));
+    }
+    
+    public static void añadirDonacion(ArrayList<Campania> campañas) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("¿En qué campaña quieres añadir la donación?:");
+        String nombre = entrada.nextLine();
+        
+        int i = 0;
+        boolean encontrado = false;
+        
+        while(i < campañas.size() && !encontrado) {
+            if(campañas.get(i).getNombre().equalsIgnoreCase(nombre)) {
+                encontrado = true;
+                System.out.print("Introduce tu nombre:");
+                String donante = entrada.nextLine();
+                System.out.print("Introduce la cantidad a donar:");
+                double cantidad = entrada.nextDouble();
+                entrada.nextLine();
+                
+                campañas.get(i).getDonaciones().add(new Donacion(donante, cantidad));
+            }
+            else {
+                i++;
+            }
+        }
+        
+        if(!encontrado) {
+            System.out.println("No se ha encontrado la campaña.");
+        }
+    }
+    
+    public static void mostrarCampañasConDonaciones(ArrayList<Campania> campañas) {
+        for(int i = 0; i < campañas.size(); i++) {
+            System.out.println("CAMPAÑA "+campañas.get(i).getNombre()+"");
+            for(Donacion d : campañas.get(i).getDonaciones()) {
+                System.out.println(d);
+            }
+        }
+    }
+    
+    public static void mostrarCampañaPorNombre(ArrayList<Campania> campañas) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Introduce el nombre de la campaña para ver sus donaciones:");
+        String campaña = entrada.nextLine();
+        
+        int i = 0;
+        boolean encontrado = false;
+        
+        while(i < campañas.size() && !encontrado) {
+            if(campañas.get(i).getNombre().equalsIgnoreCase(campaña)) {
+                encontrado = true;
+                System.out.println("Nombre campaña: "+campañas.get(i).getNombre()+"");
+                for(Donacion d : campañas.get(i).getDonaciones()) {
+                    System.out.println(d);
+                }
+            }
+            else {
+                i++;
+            }
+        }
     }
     /**
      * @param args the command line arguments
@@ -41,16 +103,16 @@ public class Ejercicio7 {
             opcion = menu();
             switch (opcion) {
                 case 1:
-                    
+                    añadirCampaña(campañas);
                     break;
                 case 2:
-                    
+                    añadirDonacion(campañas);
                     break;
                 case 3:
-                    
+                    mostrarCampañasConDonaciones(campañas);
                     break;
                 case 4:
-                    
+                    mostrarCampañaPorNombre(campañas);
                     break;
                 case 5:
                     
