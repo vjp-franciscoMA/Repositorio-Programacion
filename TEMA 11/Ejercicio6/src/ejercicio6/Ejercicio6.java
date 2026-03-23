@@ -4,6 +4,7 @@
  */
 package ejercicio6;
 import java.util.Scanner;
+import java.util.TreeSet;
 /**
  *
  * @author alumno
@@ -23,49 +24,84 @@ public class Ejercicio6 {
         return opcion;
     }
     
-    public static void añadirDonaciones(Donacion[] donaciones) {
+    public static void añadirDonaciones(Campania campaña) {
         Scanner entrada = new Scanner(System.in);
-        System.out.print("Introduce cuántas donaciones quieres hacer:");
-        int donacion = entrada.nextInt();
-        entrada.nextLine();
-        
-        for(int i = 0; i < donacion; i++) {
-            System.out.println("DONACIÓN "+(i+1)+"");
-            System.out.print("Introduce tu nombre:");
-            String nombre = entrada.nextLine();
-            System.out.print("Introduce la cantidad que quieres donar:");
-            int cantidad = entrada.nextInt();
-            entrada.nextLine();
-            donaciones[i] = new Donacion(nombre, cantidad);
+        System.out.print("Introduce tu nombre:");
+        String nombre = entrada.nextLine();
+        System.out.print("Introduce la cantidad a donar:");
+        double cantidad = entrada.nextInt();
+        campaña.getDonaciones().add(new Donacion(nombre, cantidad));
+    }
+    
+    public static void mostrarDonaciones(Campania campaña) {
+        for(Donacion d: campaña.getDonaciones()) {
+            System.out.println(d);
+        }
+    }
+    
+    public static void mostrarDonacionPorNombreDeDonante(Campania campaña) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Introduce un nombre para ver sus donaciones:");
+        String nombre = entrada.nextLine();
+        boolean encontrado = false;
+        for(Donacion d: campaña.getDonaciones()) {
+            if(d.getNombre().equalsIgnoreCase(nombre)) {
+                encontrado = true;
+                System.out.println(d);
+            }
+        }
+        if(!encontrado) {
+            System.out.println("No se han encontrado donaciones con ese nombre.");
+        }
+    }
+    
+    public static void mostrarNumeroDeDonaciones(Campania campaña) {
+        System.out.println(campaña.getDonaciones().size());
+    }
+    
+    public static void mostrarTotalDinero(Campania campaña) {
+        double total = 0;
+        for(Donacion d : campaña.getDonaciones()) {
+            total = total + d.getCantidad();
+        }
+        System.out.println("Total dinero: "+total+"");
+    }
+    
+    public static void ordenarDonaciones(Campania campaña) {
+        TreeSet<Donacion> ordenadas = new TreeSet<>(campaña.getDonaciones());
+
+        System.out.println("Donaciones ordenadas de mayor a menor:");
+        for (Donacion d : ordenadas) {
+            System.out.println("Donante: "+d.getNombre()+", Cantidad: "+d.getCantidad()+"");
         }
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Donacion[] donaciones = null;
+        Campania campaña = new Campania("Coronavirus");
         int opcion;
         
         do{
             opcion = menu();
             switch(opcion) {
                 case 1:
-                    
+                    añadirDonaciones(campaña);
                     break;
                 case 2:
-                    
+                    mostrarDonaciones(campaña);
                     break;
                 case 3:
-                    
+                    mostrarDonacionPorNombreDeDonante(campaña);
                     break;
                 case 4:
-                    
+                    mostrarNumeroDeDonaciones(campaña);
                     break;
                 case 5:
-                    
+                    mostrarTotalDinero(campaña);
                     break;
                 case 6:
-                    
+                    ordenarDonaciones(campaña);
                     break;
                 case 7:
                     System.out.println("Te has salido del programa.");
