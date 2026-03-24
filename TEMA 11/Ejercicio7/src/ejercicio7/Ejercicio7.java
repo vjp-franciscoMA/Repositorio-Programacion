@@ -92,6 +92,28 @@ public class Ejercicio7 {
             }
         }
     }
+    
+    public static void mostrarTotalDineroRecaudado(ArrayList<Campania> campañas) {
+        double total = 0;
+        for(int i = 0; i < campañas.size(); i++) {
+            for(Donacion d : campañas.get(i).getDonaciones()) {
+                total = total + d.getCantidad();
+            }
+        }
+        System.out.println("El total de dinero recaudado es: "+total+"");
+    }
+    
+    public static void mostrarMayorDonacion(ArrayList<Campania> campañas) {
+        Donacion mayor = null;
+        for(int i = 0; i < campañas.size(); i++) {
+            for(Donacion d : campañas.get(i).getDonaciones()) {
+                if(mayor == null || d.getCantidad() > mayor.getCantidad()) {
+                    mayor = d;
+                }
+            }
+        }
+        System.out.println("La mayor donación es de una cantidad de: "+mayor+"");
+    }
     /**
      * @param args the command line arguments
      */
@@ -115,10 +137,10 @@ public class Ejercicio7 {
                     mostrarCampañaPorNombre(campañas);
                     break;
                 case 5:
-                    
+                    mostrarTotalDineroRecaudado(campañas);
                     break;
                 case 6:
-                    
+                    mostrarMayorDonacion(campañas);
                     break;
                 case 7:
                     System.out.println("Te has salido del programa.");
