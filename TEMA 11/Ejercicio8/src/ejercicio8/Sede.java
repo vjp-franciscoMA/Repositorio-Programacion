@@ -8,7 +8,7 @@ package ejercicio8;
  *
  * @author alumno
  */
-public class Sede {
+public class Sede implements Comparable<Sede>{
     // ATRIBUTOS
     private String nombre;
     private double ingresos;
@@ -40,6 +40,12 @@ public class Sede {
 
     public void setIngresos(double ingresos) {
         this.ingresos = ingresos;
+    }
+    
+    // MÉTODOS
+     @Override
+    public int compareTo(Sede o) {
+        return (int) (o.getIngresos() - this.getIngresos());    
     }
     
     // TO STRING

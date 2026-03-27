@@ -16,7 +16,7 @@ public class Ciudad {
     private Set<Sede> sedes;
     
     // CONSTRUCTORES
-    // por defecto
+    // Por defecto
     public Ciudad() {
         this.nombre = "";
         this.sedes = new LinkedHashSet<>();
@@ -27,7 +27,7 @@ public class Ciudad {
         this.sedes = sedes;
     }
     
-    public Ciudad(String nombres) {
+    public Ciudad(String nombre) {
         this.nombre = nombre;
         this.sedes = new LinkedHashSet<>();
     }
