@@ -1,0 +1,3 @@
+Francisco Montero;H;20;0;SI;50000.0
+Enrique Montero;H;20;0;SI;20000.0
+Asier;H;18;5;SI;10000.0
